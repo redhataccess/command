@@ -101,4 +101,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <name>redhataccess</name>
+            <url>https://api.bintray.com/maven/redhataccess/maven/command/;publish=1</url>
+        </repository>
+    </distributionManagement>
 </project>
