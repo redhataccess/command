@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.redhat</groupId>
+    <artifactId>command</artifactId>
+    <version>1.0</version>
+
+    <packaging>jar</packaging>
+
+    <url>https://github.com/sfloess/command</url>
+
+    <name>Red Hat Command Library</name>
+    <description>Java based implementation of the command design pattern</description>
+
+    <properties>
+        <!-- Project support -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <org.apache.maven.plugins_maven-compiler-plugin>3.8.1</org.apache.maven.plugins_maven-compiler-plugin>
+
+        <org.apache.maven.wagon_wagon-ssh>3.4.1</org.apache.maven.wagon_wagon-ssh>
+
+        <org.apache.maven.plugins_maven-install-plugin>3.0.0-M1</org.apache.maven.plugins_maven-install-plugin>
+        <org.apache.maven.plugins_maven-deploy-plugin>3.0.0-M1</org.apache.maven.plugins_maven-deploy-plugin>
+        <org.apache.maven.plugins_maven-release-plugin>3.0.0-M1</org.apache.maven.plugins_maven-release-plugin>
+
+        <java_version>1.8</java_version>
+
+        <!-- External library support -->
+        <com.redhat_commons>1.48</com.redhat_commons>
+
+        <!-- Logging support -->
+        <org.slf4j_slf4j-log4j12>2.0.0-alpha1</org.slf4j_slf4j-log4j12>
+
+        <!-- Testing support -->
+        <junit_junit>4.13</junit_junit>
+        <org.mockito_mockito-all>2.0.2-beta</org.mockito_mockito-all>
+    </properties>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>${org.apache.maven.wagon_wagon-ssh}</version>
+            </extension>
+        </extensions>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>${org.apache.maven.plugins_maven-install-plugin}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${org.apache.maven.plugins_maven-deploy-plugin}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${org.apache.maven.plugins_maven-release-plugin}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${org.apache.maven.plugins_maven-compiler-plugin}</version>
+
+                <configuration>
+                    <source>${java_version}</source>
+                    <target>${java_version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Testing Support -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${org.slf4j_slf4j-log4j12}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit_junit}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${org.mockito_mockito-all}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
