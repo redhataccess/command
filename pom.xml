@@ -27,7 +27,14 @@
         <java_version>1.8</java_version>
 
         <!-- External library support -->
-        <com.redhat_commons>1.48</com.redhat_commons>
+        <com.redhat_commons>1.50</com.redhat_commons>
+
+        <!-- Scripting language support -->
+        <org.apache-extras.beanshell_bsh>2.0b6</org.apache-extras.beanshell_bsh>
+        <org.codehaus.groovy_groovy-jsr223>3.0.5</org.codehaus.groovy_groovy-jsr223>
+        <org.codehaus.groovy_mvel2>2.4.8.Final</org.codehaus.groovy_mvel2>
+        <org.python_jython>2.7.2</org.python_jython>
+        <org.jruby_jruby>9.2.12.0</org.jruby_jruby>
 
         <!-- Logging support -->
         <org.slf4j_slf4j-log4j12>2.0.0-alpha1</org.slf4j_slf4j-log4j12>
@@ -79,6 +86,44 @@
     </build>
 
     <dependencies>
+        <!-- Seed library -->
+        <dependency>
+            <groupId>com.redhat</groupId>
+            <artifactId>commons</artifactId>
+            <version>${com.redhat_commons}</version>
+        </dependency>
+
+        <!-- Script Language Support -->
+        <dependency>
+            <groupId>org.apache-extras.beanshell</groupId>
+            <artifactId>bsh</artifactId>
+            <version>${org.apache-extras.beanshell_bsh}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-jsr223</artifactId>
+            <version>${org.codehaus.groovy_groovy-jsr223}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mvel</groupId>
+            <artifactId>mvel2</artifactId>
+            <version>${org.codehaus.groovy_mvel2}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.python</groupId>
+            <artifactId>jython</artifactId>
+            <version>${org.python_jython}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jruby</groupId>
+            <artifactId>jruby</artifactId>
+            <version>${org.jruby_jruby}</version>
+        </dependency>
+
         <!-- Testing Support -->
         <dependency>
             <groupId>org.slf4j</groupId>
