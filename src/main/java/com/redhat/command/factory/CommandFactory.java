@@ -2,7 +2,6 @@ package com.redhat.command.factory;
 
 import com.redhat.command.Command;
 import com.redhat.command.CommandContext;
-import com.redhat.common.markup.MarkupBuilder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,15 +20,7 @@ public class CommandFactory<T extends CommandContext> {
         defs = new HashMap<>();
     }
 
-    public void defineCommandFromJson(final String name, final Class<Command<T>> command, final String json) {
-        getDefs().put(name, MarkupBuilder.JSON.asType(json, command));
-    }
-
-    public void defineCommandFromXml(final String name, final Class<Command<T>> command, final String json) {
-        getDefs().put(name, MarkupBuilder.XML.asType(json, command));
-    }
-
-    public void defineCommandFromYaml(final String name, final Class<Command<T>> command, final String json) {
-        getDefs().put(name, MarkupBuilder.YAML.asType(json, command));
+    public void defineCommand(final String name, final Class<Command<T>> command) {
+        getDefs().put(name, command);
     }
 }
