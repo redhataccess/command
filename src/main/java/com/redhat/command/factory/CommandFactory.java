@@ -10,9 +10,9 @@ import java.util.Map;
  * @author sfloess
  */
 public class CommandFactory<T extends CommandContext> {
-    private final Map<String, Command<T>> defs;
+    private final Map<String, Class<Command<T>>> defs;
 
-    private Map<String, Command<T>> getDefs() {
+    private Map<String, Class<Command<T>>> getDefs() {
         return defs;
     }
 
